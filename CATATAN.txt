@@ -1,0 +1,34 @@
+segini mo dulu
+
+list yg belum:
+-install backend
+-install auth
+-beberapa elemen dan sambungan di FE
+
+list perubahan:
+-tambah task baru, deskripsi, deadline dan priority. serta edit task
+-tambah fitur search dan filter task
+-tambah tombol mark all as complete
+-perbaikan bug pada task list dan task item, penambahan responsive header dan task item, membedakan fitur new task dan edit task, mengubah style dropdown
+-penambahan comment pada CATATAN.txt
+-perubahan icon mark all, toggle dark mode, add icon, edit icon, delete icon, penambahan search icon
+-penambahan toggle theme dark/light mode dan perbaikan warna checkbox
+-minor bug
+-perbaikan warna di dropdown, perbaikan beberapa warna di mode dark
+-penambahan countdown jika menghapus task
+-style countdown, dapat menghapus beberapa task sekaligus dan countdownnya terlihat semua
+-perbaikan warna di dropdown bagian TaskModal, animasi countdown(sementara)
+-halaman login dan signup (awal)
+-perbaikan desain halaman login dan signup, serta tombol toggle theme dark/light
+-penambahan tombol logout (backend sudah ada namun belum diintegrasikan jadi belum di push)
+-integrasi fe&be signup, login, CRUD dashboard
+
+next:
+-perbaiki warna hover di fitur edit dan delete task agar sesuai desain awal
+-perbaiki animasi lingkaran di tombol undo
+-mengganti cursor
+
+tes postman
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzUxODk2NjM2LCJleHAiOjE3NTE5ODMwMzZ9.PIWPfVMtAzo571JkDEinCFLbLz9vVzu70oc_DjK_n7Q"
+}
