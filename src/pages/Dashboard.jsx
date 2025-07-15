@@ -15,6 +15,7 @@ export default function Dashboard() {
   const [deletedTasks, setDeletedTasks] = useState([]);
   const [showLogout, setShowLogout] = useState(false);
   const navigate = useNavigate();
+  const [sortBy, setSortBy] = useState("deadline");
 
   const addTask = async (newData) => {
     try {
@@ -116,19 +117,31 @@ export default function Dashboard() {
     setShowModal(true);
   };
 
-  const getFilteredTask = () => {
-    return tasks.filter((task) => {
-      const matchesSearch = task.title
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase());
-      const matchesFilter =
-        filterStatus === "all"
-          ? true
-          : filterStatus === "completed"
-          ? task.completed
-          : !task.completed;
-      return matchesSearch && matchesFilter;
-    });
+  const getFilteredTask = async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      const params = {};
+      if (filterStatus === "completed") params.completed = true;
+      else if (filterStatus === "uncompleted") params.completed = false;
+
+      if (sortBy) params.sort = sortBy;
+      
+      const res = await API.get("/tasks", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        params,
+      });
+
+      const filtered = res.data.filter((task) =>
+        task.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+
+      setTasks(filtered);
+    } catch (err) {
+      console.error("Gagal fetch tasks:", err);
+    }
   };
 
   const markAll = async () => {
@@ -184,6 +197,10 @@ export default function Dashboard() {
   }, []);
 
   useEffect(() => {
+    getFilteredTask();
+  }, [filterStatus, searchTerm, sortBy]);
+
+  useEffect(() => {
     const root = window.document.documentElement;
     if (isDark) {
       root.classList.add("dark");
@@ -202,6 +219,8 @@ export default function Dashboard() {
         setSearchTerm={setSearchTerm}
         filterStatus={filterStatus}
         setFilterStatus={setFilterStatus}
+        sortBy={sortBy}
+        setSortBy={setSortBy}
         onMarkAllComplete={markAll}
         isDark={isDark}
         setIsDark={setIsDark}
@@ -231,7 +250,7 @@ export default function Dashboard() {
       ))}
 
       <TaskList
-        tasks={getFilteredTask()}
+        tasks={tasks}
         onToggle={toggleComplete}
         onDelete={deleteTask}
         onEdit={handleEdit}

@@ -22,6 +22,9 @@ list perubahan:
 -perbaikan desain halaman login dan signup, serta tombol toggle theme dark/light
 -penambahan tombol logout (backend sudah ada namun belum diintegrasikan jadi belum di push)
 -integrasi fe&be signup, login, CRUD dashboard
+-pemisahan repo backend dan frontend
+-penambahan route PATCH mark-all-complete
+-penambahan sort by deadline di dropdown listbox
 
 next:
 -perbaiki warna hover di fitur edit dan delete task agar sesuai desain awal
