@@ -26,13 +26,18 @@ list perubahan:
 -penambahan route PATCH mark-all-complete
 -penambahan sort by deadline di dropdown listbox
 -perubahan koneksi database manual > sequelize
+-hapus config/db.js
+
 
 next:
 -perbaiki warna hover di fitur edit dan delete task agar sesuai desain awal
 -perbaiki animasi lingkaran di tombol undo
 -mengganti cursor
 
-tes postman
-{
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzUxODk2NjM2LCJleHAiOjE3NTE5ODMwMzZ9.PIWPfVMtAzo571JkDEinCFLbLz9vVzu70oc_DjK_n7Q"
-}
+NOTE:
+di MySQL nama database: smart_task_db
+untuk nama tabel : tasks dan users
+isi tabel tasks : 
+id, user_id, title, description, deadline, priority, completed, createdAt, updatedAt
+isi tabel users :
+id, email, password, createdAt, updatedAt
