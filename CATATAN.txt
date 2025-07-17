@@ -25,6 +25,7 @@ list perubahan:
 -pemisahan repo backend dan frontend
 -penambahan route PATCH mark-all-complete
 -penambahan sort by deadline di dropdown listbox
+-perubahan koneksi database manual > sequelize
 
 next:
 -perbaiki warna hover di fitur edit dan delete task agar sesuai desain awal
