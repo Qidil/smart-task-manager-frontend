@@ -11,6 +11,7 @@ Untuk backend dari repository ini: https://github.com/Qidil/smart-task-manager-b
 - CRUD Task (Create, Read, Update, Delete)
 - Deadline & status task
 - Tampilan responsif (mobile & desktop)
+- Dark/light mode
 
 ---
 
